@@ -1,0 +1,34 @@
+
+
+/****************************************************************
+*                                                               *
+*   Set static IP address                                       *
+*       Copyright (C) 2014 Tokunn All Rights Reserved.          *
+*                                                               *
+*       This file application is set static IP address          *
+*                                                               *
+****************************************************************/
+
+
+How to use
+    Type command with bash or other terminal.
+    This script must run with root. So, please run this script with sudo.
+
+
+Command:
+    ./chip.py <-argument>
+
+Argument:
+    <-h>        Set static IP address of Home
+    <-n>        Set static IP address of School (OyNCT)
+    <-r>        Set dynamic IP address (default)
+    <-help>     Show this help
+
+    exsample)
+        "sudo ./chip.py -h"
+        "sudo ./chip.py -n"
+        "sudo ./chip.py -r" or "sudo ./chip.py"
+        "sudo ./chip.py -help"
+
+
+
