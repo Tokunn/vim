@@ -1,0 +1,24 @@
+
+/****************************************************************************/
+
+iw dev
+iw dev wlp2s0 link
+iw dev wlp2s0 station dump
+ip link set wlp2s0 up
+ip link show wlp2s0
+iw dev wlp2s0 scan | grep SSID
+
+iw dev wlp2s0 connect your_ssid
+iw dev wlp2s0 connect your_ssid key 0:your_key
+
+wpa_passphrase your_ssid your_key >> /etc/wpa_supplicant/wpa_supplicant.conf
+wpa_supplicant -B -i wlp2s0 -c /etc/wpa_supplicant.conf
+
+iw dev wlp2s0 link
+
+dhcpcd wlp2s0
+ip addr add 192.168.1.2/24 dev wlp2s0
+ip route add default via 192.168.0.1
+
+/****************************************************************************/
+
