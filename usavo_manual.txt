@@ -1,0 +1,10 @@
+
+	1.chmod +x mpg321
+	2.cp mpg321 /usr/bin/mpg321
+	3.pacman -Syu
+	4.pacman -Syu alsa-utils
+	5.pacman -Syu mpd
+	6.echo defautls.pcm.card 1 > /etc/asound.conf
+	  echo defaults.pcm.device 0 >> /etc/asound.conf
+	  echo defaults.ctl.card 1 >> /etc/asound.conf
+
