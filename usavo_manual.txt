@@ -1,6 +1,3 @@
-
-	1.chmod +x mpg321
-	2.cp mpg321 /usr/bin/mpg321
 	3.pacman -Syu
 	4.pacman -Syu alsa-utils
 	5.pacman -Syu mpd
