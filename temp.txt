@@ -1,0 +1,16 @@
+tokunn@localhost 0:50:10 [~] $ ping www.oyama-ct.ac.jp -c 10
+PING vps-1018260-932.cp.hosting-srv.net (210.152.150.32) 56(84) bytes of data.
+64 bytes from vps-1018260-932.cp.hosting-srv.net (210.152.150.32): icmp_seq=1 ttl=50 time=34.1 ms
+64 bytes from vps-1018260-932.cp.hosting-srv.net (210.152.150.32): icmp_seq=2 ttl=50 time=33.9 ms
+64 bytes from vps-1018260-932.cp.hosting-srv.net (210.152.150.32): icmp_seq=3 ttl=50 time=33.7 ms
+64 bytes from vps-1018260-932.cp.hosting-srv.net (210.152.150.32): icmp_seq=4 ttl=50 time=33.7 ms
+64 bytes from vps-1018260-932.cp.hosting-srv.net (210.152.150.32): icmp_seq=5 ttl=50 time=33.9 ms
+64 bytes from vps-1018260-932.cp.hosting-srv.net (210.152.150.32): icmp_seq=6 ttl=50 time=34.3 ms
+64 bytes from vps-1018260-932.cp.hosting-srv.net (210.152.150.32): icmp_seq=7 ttl=50 time=34.0 ms
+64 bytes from vps-1018260-932.cp.hosting-srv.net (210.152.150.32): icmp_seq=8 ttl=50 time=34.0 ms
+64 bytes from vps-1018260-932.cp.hosting-srv.net (210.152.150.32): icmp_seq=9 ttl=50 time=33.6 ms
+64 bytes from vps-1018260-932.cp.hosting-srv.net (210.152.150.32): icmp_seq=10 ttl=50 time=33.7 ms
+
+--- vps-1018260-932.cp.hosting-srv.net ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9010ms
+rtt min/avg/max/mdev = 33.669/33.939/34.325/0.234 ms
