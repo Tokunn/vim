@@ -1,0 +1,498 @@
+tokunn@localhost 17:12:49 [~/Program/vim/program] $ gcc kadai4.c -g
+tokunn@localhost 17:12:53 [~/Program/vim/program] $ gdb a.out -q
+Reading symbols from a.out...done.
+(gdb) list 1
+1	#include <stdio.h>
+2	#include <stdlib.h>
+3	
+4	#define A_SIZE 10
+5	
+6	
+7	/*----- printlist() -----*/
+8	void printlist(int *a_p) {
+9	    int i;
+10	    for (i = 0; i < A_SIZE; i++) {
+(gdb) 
+11	        printf("%d:", a_p[i]);
+12	    }
+13	    printf("\n");
+14	}
+15	
+16	
+17	/*----- qsorts() ------*/
+18	void qsorts(int *a_p, int low, int high) {
+19	    int i=low, j=high, tmp;
+20	    int p = a_p[0];
+(gdb) 
+21	
+22	    while (i <= j) {
+23	        printf("while\n");
+24	        while (a_p[i] < p) {
+25	            i++;
+26	        }
+27	        while (a_p[j] > p) {
+28	            j--;
+29	        }
+30	        if (i<=j) {
+(gdb) 
+31	            tmp = a_p[i];
+32	            a_p[i] = a_p[j];
+33	            a_p[j] = tmp;
+34	        }
+35	    }
+36	
+37	    printlist(a_p);
+38	
+39	    if (low < j) {
+40	        qsorts(a_p, low, j);
+(gdb) b 23
+Breakpoint 1 at 0x400615: file kadai4.c, line 23.
+(gdb) b 26
+Breakpoint 2 at 0x400640: file kadai4.c, line 26.
+(gdb) b 29
+Breakpoint 3 at 0x400661: file kadai4.c, line 29.
+(gdb) b 33
+Breakpoint 4 at 0x4006ae: file kadai4.c, line 33.
+(gdb) run
+Starting program: /home/tokunn/Program/vim/program/a.out 
+3:9:1:6:8:7:2:5:4:0:
+
+Breakpoint 1, qsorts (a_p=0x7fffffffe9c0, low=0, high=9) at kadai4.c:23
+23	        printf("while\n");
+(gdb) p i
+$1 = 0
+(gdb) p j
+$2 = 9
+(gdb) p a_p[j]
+$3 = 0
+(gdb) p a_p[i]
+$4 = 3
+(gdb) p i
+$5 = 0
+(gdb) c
+Continuing.
+while
+
+Breakpoint 2, qsorts (a_p=0x7fffffffe9c0, low=0, high=9) at kadai4.c:27
+27	        while (a_p[j] > p) {
+(gdb) p i
+$6 = 0
+(gdb) p j
+$7 = 9
+(gdb) b 28
+Breakpoint 5 at 0x400642: file kadai4.c, line 28.
+(gdb) p j
+$8 = 9
+(gdb) p a_p[j]
+$9 = 0
+(gdb) p p
+$10 = 3
+(gdb) c
+Continuing.
+
+Breakpoint 3, qsorts (a_p=0x7fffffffe9c0, low=0, high=9) at kadai4.c:30
+30	        if (i<=j) {
+(gdb) p j
+$11 = 9
+(gdb) p i
+$12 = 0
+(gdb) p j
+$13 = 9
+(gdb) p a_p[i]
+$14 = 3
+(gdb) p a_p[j]
+$15 = 0
+(gdb) c
+Continuing.
+
+Breakpoint 4, qsorts (a_p=0x7fffffffe9c0, low=0, high=9) at kadai4.c:33
+33	            a_p[j] = tmp;
+(gdb) n
+22	    while (i <= j) {
+(gdb) p i
+$16 = 0
+(gdb) p j
+$17 = 9
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 1293] will be killed.
+
+Quit anyway? (y or n) y
+tokunn@localhost 17:16:45 [~/Program/vim/program] $ gcc -g kadai4.c 
+tokunn@localhost 17:17:01 [~/Program/vim/program] $ gdb kadai4.c -q
+"/home/tokunn/Program/vim/program/kadai4.c": not in executable format: File format not recognized
+(gdb) list 1
+No symbol table is loaded.  Use the "file" command.
+(gdb) 
+No symbol table is loaded.  Use the "file" command.
+(gdb) 
+No symbol table is loaded.  Use the "file" command.
+(gdb) q
+tokunn@localhost 17:17:17 [~/Program/vim/program] $ gcc kadai4.c -g
+tokunn@localhost 17:17:21 [~/Program/vim/program] $ gdb kadai4.c -q
+"/home/tokunn/Program/vim/program/kadai4.c": not in executable format: File format not recognized
+(gdb) q
+tokunn@localhost 17:17:39 [~/Program/vim/program] $ ls
+a.out*  kadai4.c
+tokunn@localhost 17:17:47 [~/Program/vim/program] $ gcc kadai4.c -g
+tokunn@localhost 17:17:52 [~/Program/vim/program] $ gdb a.out -q
+Reading symbols from a.out...done.
+(gdb) list 1
+1	#include <stdio.h>
+2	#include <stdlib.h>
+3	
+4	#define A_SIZE 10
+5	
+6	
+7	/*----- printlist() -----*/
+8	void printlist(int *a_p) {
+9	    int i;
+10	    for (i = 0; i < A_SIZE; i++) {
+(gdb) 
+11	        printf("%d:", a_p[i]);
+12	    }
+13	    printf("\n");
+14	}
+15	
+16	
+17	/*----- qsorts() ------*/
+18	void qsorts(int *a_p, int low, int high) {
+19	    int i=low, j=high, tmp;
+20	    int p = a_p[0];
+(gdb) 
+21	
+22	    while (i <= j) {
+23	        printf("while\n");
+24	        while (a_p[i] < p) {
+25	            i++;
+26	        }
+27	        while (a_p[j] > p) {
+28	            j--;
+29	        }
+30	        if (i<=j) {
+(gdb) b23
+Undefined command: "b23".  Try "help".
+(gdb) b 23
+Breakpoint 1 at 0x400615: file kadai4.c, line 23.
+(gdb) b 25
+Breakpoint 2 at 0x400621: file kadai4.c, line 25.
+(gdb) b 28
+Breakpoint 3 at 0x400642: file kadai4.c, line 28.
+(gdb) b 34
+Breakpoint 4 at 0x4006c7: file kadai4.c, line 34.
+(gdb) b 36
+Breakpoint 5 at 0x4006db: file kadai4.c, line 36.
+(gdb) run
+Starting program: /home/tokunn/Program/vim/program/a.out 
+3:9:1:6:8:7:2:5:4:0:
+
+Breakpoint 1, qsorts (a_p=0x7fffffffe9c0, low=0, high=9) at kadai4.c:23
+23	        printf("while\n");
+(gdb) p i
+$1 = 0
+(gdb) p j
+$2 = 9
+(gdb) p a_p[i]
+$3 = 3
+(gdb) p a_p[j]
+$4 = 0
+(gdb) p p
+$5 = 3
+(gdb) c
+Continuing.
+while
+
+Breakpoint 4, qsorts (a_p=0x7fffffffe9c0, low=0, high=9) at kadai4.c:34
+34	            i++;
+(gdb) p i
+$6 = 0
+(gdb) n
+35	            j--;
+(gdb) p i
+$7 = 1
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 2784] will be killed.
+
+Quit anyway? (y or n) y
+tokunn@localhost 17:20:45 [~/Program/vim/program] $ gdb a.out -q
+Reading symbols from a.out...done.
+(gdb) b 23
+Breakpoint 1 at 0x400615: file kadai4.c, line 23.
+(gdb) b 26
+Breakpoint 2 at 0x400640: file kadai4.c, line 26.
+(gdb) b 28
+Breakpoint 3 at 0x400642: file kadai4.c, line 28.
+(gdb) run
+Starting program: /home/tokunn/Program/vim/program/a.out 
+3:9:1:6:8:7:2:5:4:0:
+
+Breakpoint 1, qsorts (a_p=0x7fffffffe9c0, low=0, high=9) at kadai4.c:23
+23	        printf("while\n");
+(gdb) p i
+$1 = 0
+(gdb) p j
+$2 = 9
+(gdb) p a_p[i]
+$3 = 3
+(gdb) p p
+$4 = 3
+(gdb) c
+Continuing.
+while
+
+Breakpoint 2, qsorts (a_p=0x7fffffffe9c0, low=0, high=9) at kadai4.c:27
+27	        while (a_p[j] > p) {
+(gdb) p i
+$5 = 0
+(gdb) p j
+$6 = 9
+(gdb) p a_p[j]
+$7 = 0
+(gdb) p p
+$8 = 3
+(gdb) c
+Continuing.
+
+Breakpoint 1, qsorts (a_p=0x7fffffffe9c0, low=0, high=9) at kadai4.c:23
+23	        printf("while\n");
+(gdb) a_p[i-1]
+Undefined command: "a_p".  Try "help".
+(gdb) p a_p[i-1]
+$9 = 0
+(gdb) p a_p[j+1]
+$10 = 3
+(gdb) p i
+$11 = 1
+(gdb) p j
+$12 = 8
+(gdb) p a_p[i]
+$13 = 9
+(gdb) p p
+$14 = 3
+(gdb) c
+Continuing.
+while
+
+Breakpoint 2, qsorts (a_p=0x7fffffffe9c0, low=0, high=9) at kadai4.c:27
+27	        while (a_p[j] > p) {
+(gdb) p i
+$15 = 1
+(gdb) p j
+$16 = 8
+(gdb) p a_p[j]
+$17 = 4
+(gdb) p p
+$18 = 3
+(gdb) c
+Continuing.
+
+Breakpoint 3, qsorts (a_p=0x7fffffffe9c0, low=0, high=9) at kadai4.c:28
+28	            j--;
+(gdb) p j
+$19 = 8
+(gdb) c
+Continuing.
+
+Breakpoint 3, qsorts (a_p=0x7fffffffe9c0, low=0, high=9) at kadai4.c:28
+28	            j--;
+(gdb) p j
+$20 = 7
+(gdb) p a_p[j]
+$21 = 5
+(gdb) p p
+$22 = 3
+(gdb) c
+Continuing.
+
+Breakpoint 1, qsorts (a_p=0x7fffffffe9c0, low=0, high=9) at kadai4.c:23
+23	        printf("while\n");
+(gdb) p j
+$23 = 5
+(gdb) p a_p[j]
+$24 = 7
+(gdb) p a_p[j+1]
+$25 = 9
+(gdb) b 34
+Breakpoint 4 at 0x4006c7: file kadai4.c, line 34.
+(gdb) p i
+$26 = 2
+(gdb) p a_p[i]
+$27 = 1
+(gdb) p p
+$28 = 3
+(gdb) p i
+$29 = 2
+(gdb) c
+Continuing.
+while
+
+Breakpoint 2, qsorts (a_p=0x7fffffffe9c0, low=0, high=9) at kadai4.c:27
+27	        while (a_p[j] > p) {
+(gdb) p i
+$30 = 3
+(gdb) p a_p[i]
+$31 = 6
+(gdb) p j
+$32 = 5
+(gdb) p a_p[j]
+$33 = 7
+(gdb) p p
+$34 = 3
+(gdb) c
+Continuing.
+
+Breakpoint 3, qsorts (a_p=0x7fffffffe9c0, low=0, high=9) at kadai4.c:28
+28	            j--;
+(gdb) p j
+$35 = 5
+(gdb) c
+Continuing.
+
+Breakpoint 3, qsorts (a_p=0x7fffffffe9c0, low=0, high=9) at kadai4.c:28
+28	            j--;
+(gdb) p j
+$36 = 4
+(gdb) p a_p[j]
+$37 = 8
+(gdb) c
+Continuing.
+
+Breakpoint 3, qsorts (a_p=0x7fffffffe9c0, low=0, high=9) at kadai4.c:28
+28	            j--;
+(gdb) p j
+$38 = 3
+(gdb) p a_p[j]
+$39 = 6
+(gdb) c
+Continuing.
+0:2:1:6:8:7:9:5:4:3:
+
+Breakpoint 1, qsorts (a_p=0x7fffffffe9c0, low=0, high=2) at kadai4.c:23
+23	        printf("while\n");
+(gdb) p j
+$40 = 2
+(gdb) p i
+$41 = 0
+(gdb) p i
+$42 = 0
+(gdb) p a_p[j]
+$43 = 1
+(gdb) p a_p[j+1]
+$44 = 6
+(gdb) p j
+$45 = 2
+(gdb) p a_p[i]
+$46 = 0
+(gdb) p p
+$47 = 0
+(gdb) c
+Continuing.
+while
+
+Breakpoint 2, qsorts (a_p=0x7fffffffe9c0, low=0, high=2) at kadai4.c:27
+27	        while (a_p[j] > p) {
+(gdb) p j
+$48 = 2
+(gdb) p a_p[j]
+$49 = 1
+(gdb) p p
+$50 = 0
+(gdb) c
+Continuing.
+
+Breakpoint 3, qsorts (a_p=0x7fffffffe9c0, low=0, high=2) at kadai4.c:28
+28	            j--;
+(gdb) p j
+$51 = 2
+(gdb) c
+Continuing.
+
+Breakpoint 3, qsorts (a_p=0x7fffffffe9c0, low=0, high=2) at kadai4.c:28
+28	            j--;
+(gdb) p j
+$52 = 1
+(gdb) p a_p[j]
+$53 = 2
+(gdb) c
+Continuing.
+
+Breakpoint 4, qsorts (a_p=0x7fffffffe9c0, low=0, high=2) at kadai4.c:34
+34	            i++;
+(gdb) b 30
+Breakpoint 5 at 0x400661: file kadai4.c, line 30.
+(gdb) b 41
+Breakpoint 6 at 0x4006e7: file kadai4.c, line 41.
+(gdb) b 44
+Breakpoint 7 at 0x400703: file kadai4.c, line 44.
+(gdb) a_p[i]
+Undefined command: "a_p".  Try "help".
+(gdb) p a_p[i]
+$54 = 0
+(gdb) p a_p[j]
+$55 = 0
+(gdb) p a_p[i+1]
+$56 = 2
+(gdb) p a_p[j-1]
+$57 = 0
+(gdb) p tmp
+$58 = 0
+(gdb) p a_p[j]
+$59 = 0
+(gdb) p a_p[i]
+$60 = 0
+(gdb) p j
+$61 = 0
+(gdb) c
+Continuing.
+0:2:1:6:8:7:9:5:4:3:
+
+Breakpoint 6, qsorts (a_p=0x7fffffffe9c0, low=0, high=2) at kadai4.c:41
+41	    if (low < j) {
+(gdb) p low
+$62 = 0
+(gdb) p j
+$63 = -1
+(gdb) p i
+$64 = 1
+(gdb) c
+Continuing.
+
+Breakpoint 7, qsorts (a_p=0x7fffffffe9c0, low=0, high=2) at kadai4.c:44
+44	    if (high > i) {
+(gdb) a_p[0]
+Undefined command: "a_p".  Try "help".
+(gdb) p a_p[0]
+$65 = 0
+(gdb) p a_p[1]
+$66 = 2
+(gdb) p a_p[2]
+$67 = 1
+(gdb) p i
+$68 = 1
+(gdb) p high
+$69 = 2
+(gdb) c
+Continuing.
+
+Breakpoint 1, qsorts (a_p=0x7fffffffe9c0, low=1, high=2) at kadai4.c:23
+23	        printf("while\n");
+(gdb) p i
+$70 = 1
+(gdb) p a_p[i]
+$71 = 2
+(gdb) p j
+$72 = 2
+(gdb) p a_p[j]
+$73 = 1
+(gdb) p p
+$74 = 0
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 3257] will be killed.
+
+Quit anyway? (y or n) y
+
