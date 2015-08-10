@@ -1,4 +1,5 @@
-CC		= gcc
+#CC		= gcc
+CC		= clang
 CCFLAGS	= -Wall -Wextra -O2 -g
 SOURCES:= $(wildcard *.c)
 TARGET	= $(SOURCES:.c=.bin)
@@ -6,7 +7,7 @@ TARGET	= $(SOURCES:.c=.bin)
 all: $(TARGET)
 
 %.bin:%.c
-	$(CC) $(CCFLAGS) $< -o $@
+	$(CC) -I./ $(CCFLAGS) $< -o $@
 
 clean:
 	$(RM) -r *.bin

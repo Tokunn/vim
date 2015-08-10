@@ -31,22 +31,22 @@ void msorts(int *a, int p, int n) {
         for (k=p; k < p+n; k++) {
             if ((i < p+h) && ((j>=p+n) || (a[i] <= a[j]))) {
                 b[k] = a[i];
-                printf("a[i]\n");
+                //printf("a[i]\n");
                 i++;
             }
             else {
                 b[k] = a[j];
-                printf("a[j]\n");
+                //printf("a[j]\n");
                 j++;
             }
         }
         for (i = p; i < p+n; i++) {
             a[i] = b[i];
         }
-        printf("A: ");
+        //printf("A: ");
         printlist(a, 0, A_SIZE);
-        printf("B: ");
-        printlist(b, 0, A_SIZE);
+        //printf("B: ");
+        //printlist(b, 0, A_SIZE);
     }
 }
 
