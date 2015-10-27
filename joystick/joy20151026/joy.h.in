@@ -1,0 +1,18 @@
+#ifndef __JOY_H__
+#define __JOY_H__
+
+#include <sys/types.h>
+#include <linux/joystick.h>
+
+#define JOY_VERSION	@VERSION@
+#define JOY_EVENT	struct js_event
+
+int	joy_open(char *dev);
+int	joy_close(void);
+int	joy_event(JOY_EVENT *js);
+int	joy_get_buttons(void);
+int	joy_get_axes(void);
+char *	joy_get_name(void);
+
+
+#endif /* __JOY_H__ */
